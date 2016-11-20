@@ -1,0 +1,2 @@
+module ContentViewsHelper
+end
