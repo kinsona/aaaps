@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161120030806) do
+ActiveRecord::Schema.define(version: 20161120145052) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "content_views", force: :cascade do |t|
     t.string   "content_url"
@@ -20,16 +23,26 @@ ActiveRecord::Schema.define(version: 20161120030806) do
     t.string   "device_id"
   end
 
+  create_table "days", force: :cascade do |t|
+    t.string   "device_id",                  null: false
+    t.boolean  "tagged",     default: false
+    t.json     "symptoms"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
   create_table "orders", force: :cascade do |t|
-    t.string   "recipient_name",     null: false
-    t.string   "address_line_1",     null: false
-    t.string   "address_line_2",     null: false
-    t.string   "city",               null: false
-    t.string   "state_abbreviation", null: false
-    t.string   "zip_code",           null: false
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.string   "recipient_name",         null: false
+    t.string   "address_line_1",         null: false
+    t.string   "address_line_2",         null: false
+    t.string   "city",                   null: false
+    t.string   "state_abbreviation",     null: false
+    t.string   "zip_code",               null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.string   "device_id"
+    t.datetime "sent_at"
+    t.datetime "follow_up_scheduled_at"
   end
 
   create_table "product_recommendation_responses", force: :cascade do |t|
