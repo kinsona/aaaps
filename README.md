@@ -27,7 +27,7 @@ Include these fields in the body:
 ## To request and log a product recommendation
 POST to aaaps.herokuapp.com/product_recommendations.json
 The body of the request should look like this:
---
+```
 {
   device_id: '1234567',
   product_recommendation_responses_attributes: [
@@ -35,4 +35,4 @@ The body of the request should look like this:
     { question_text: "What about a follow-up question?", response_text: "That's too much." }
   ]
 }
---
+```
