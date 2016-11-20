@@ -387,64 +387,7 @@
                 <div class="row">
                     <div class="col-lg-12">
 
-                        <!-- question list -->
-                        <!-- TODO: get some real questions -->
-                        <form role="form">
-                            <!-- question 1 -->
-                            <fieldset>
-                                <div class="form-group">
-                                    <input class="form-control" id="question1" type="text" placeholder="How old are you?">
-                                </div>
-                            </fieldset>
-                            <div class="form-group">
-                                <!-- <label>Selects</label> -->
-                                <select class="form-control" id="answer1">
-                                    <option>None Selected</option>
-                                    <option>7-9 years old</option>
-                                    <option>10-12 years old</option>
-                                    <option>13-18 years old</option>
-                                    <option>19-40 years old</option>
-                                    <option>50+ years old</option>
-                                </select>
-                            </div>
-                            <!-- question 2 -->
-                            <fieldset disabled>
-                                <div class="form-group">
-                                    <input class="form-control" id="question2" type="text" placeholder="How do you feel about your period?" disabled>
-                                </div>
-                            </fieldset>
-                            <div class="form-group">
-                                <!-- <label>Selects</label> -->
-                                <select class="form-control" id="answer2">
-                                    <option>None Selected</option>
-                                    <option>I love it!!!</option>
-                                    <option>Its alright...</option>
-                                    <option>It's horrible!</option>
-                                </select>
-                            </div>
-                            <fieldset disabled>
-                                <div class="form-group">
-                                    <input class="form-control" id="question3" type="text" placeholder="Does the wrapper matter?" disabled>
-                                </div>
-                            </fieldset>
-                            <div class="form-group">
-                                <!-- <label>Selects</label> -->
-                                <select class="form-control" id="answer3">
-                                    <option>None Selected</option>
-                                    <option>Yes! It has to be quiet. I'm very self conscious in the bathroom.</option>
-                                    <option>Quiet wrappers would be nice.</option>
-                                    <option>no....it doesn't matter...</option>
-                                    <option>no wrapper would be better</option>
-                                </select>
-                            </div>
-                            <button type="submit" class="btn btn-default" id="submitButton">Submit Button</button>
-                        </form>
-
-                        <!-- product result -->
-                        <!-- this answer will be returned by backend server after answers from questions are sent. -->
-                        <div id="productResult">
-                            <!-- [product name] it will go here. -->
-                        </div>
+                        visual charts
 
                     </div>
                     <!-- /.col-lg-12 -->
@@ -473,61 +416,24 @@
     <script src="../dist/js/sb-admin-2.js"></script>
 
     <!-- Setup Navbar -->
-    <script src="../js/nav-bar.js"></script>
+    <script src="../js/nav-bar-for-admin.js"></script>
 
-    <!-- Capture Passive Data -->
-    <script src="../js/passive_data_collector.js"></script>
 
     <script type="text/javascript">
-    // PRODUCT RECOMMENDER
+    // SHOW THE DATA WE ARE CAPTURING FOR THE ADMIN
+
+
+
     
-    // Capture all questions and answers
-    var questionnaire = {
-        questions: [ 
-            $('#question1').attr('placeholder'),
-            $('#question2').attr('placeholder'),
-            $('#question3').attr('placeholder')
+    // get data blob from server
+    // DEV: just create a test object for now
+    var dataBlob = {
+        questionnaires:[
+            {}, {}, {}
         ],
-        answers: [
-            $('#answer1').val(),
-            $('#answer2').val(),
-            $('#answer3').val()
-        ]
+        passive_data:'' // DEV: find the right data structure here
     };
-
-    // Send all question and answers to server
-    $('#submitButton').click(function(){
-        $.ajax({
-            url: 'ajax-test.html',
-            type: 'POST',
-            data: {
-                questionnaire
-            },
-           success:function(result)//we got the response
-           {
-                alert('Successfully called');
-           },
-           error:function(exception){
-                // alert('Exeption:'+exception);
-
-               // DEV: just show a default answer
-               update_product_result();
-
-            }
-
-        })
-
-        return false; // return false to not refreash data
-    });
-
-    function update_product_result() {
-
-        $('#productResult').html('Tampax - Pearl - Super');
-    }
-
-
-    // console.log(questionnaire);
-    // console.log();
+    // code...
 
     </script>
 

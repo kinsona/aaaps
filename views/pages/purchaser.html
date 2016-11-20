@@ -30,7 +30,17 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+
+    <!-- Connect to Here API -->
+    <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js" 
+    type="text/javascript" charset="utf-8"></script>
+    <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js" 
+    type="text/javascript" charset="utf-8"></script>
+    
 </head>
+
+
+
 
 
 
@@ -382,69 +392,48 @@
                 <!-- /.row -->
 
                 <!-- OUR MAIN CONTENT GOES HERE -->
-                <!-- main content for prodcut recommender -->
-                <!-- question ref:http://www.quibblo.com/quiz/ftqJtnO/Which-feminine-product-is-right-for-you -->
                 <div class="row">
                     <div class="col-lg-12">
 
-                        <!-- question list -->
-                        <!-- TODO: get some real questions -->
                         <form role="form">
-                            <!-- question 1 -->
-                            <fieldset>
-                                <div class="form-group">
-                                    <input class="form-control" id="question1" type="text" placeholder="How old are you?">
-                                </div>
-                            </fieldset>
+                            <h3>Get your free pack</h3>
+                            <p>some other details...</p>
+                            <!-- billing adddress -->
+                            <!-- street address 1 -->
+                            <h4>Shipping Address</h4>
                             <div class="form-group">
-                                <!-- <label>Selects</label> -->
-                                <select class="form-control" id="answer1">
-                                    <option>None Selected</option>
-                                    <option>7-9 years old</option>
-                                    <option>10-12 years old</option>
-                                    <option>13-18 years old</option>
-                                    <option>19-40 years old</option>
-                                    <option>50+ years old</option>
-                                </select>
+                                <input class="form-control">
+                                <p class="help-block">Street Address</p>
                             </div>
-                            <!-- question 2 -->
-                            <fieldset disabled>
-                                <div class="form-group">
-                                    <input class="form-control" id="question2" type="text" placeholder="How do you feel about your period?" disabled>
-                                </div>
-                            </fieldset>
+                            <!-- street address line 2 -->
                             <div class="form-group">
-                                <!-- <label>Selects</label> -->
-                                <select class="form-control" id="answer2">
-                                    <option>None Selected</option>
-                                    <option>I love it!!!</option>
-                                    <option>Its alright...</option>
-                                    <option>It's horrible!</option>
-                                </select>
+                                <input class="form-control">
+                                <p class="help-block">Street Address Line 2</p>
                             </div>
-                            <fieldset disabled>
-                                <div class="form-group">
-                                    <input class="form-control" id="question3" type="text" placeholder="Does the wrapper matter?" disabled>
-                                </div>
-                            </fieldset>
+                            <!-- city -->
                             <div class="form-group">
-                                <!-- <label>Selects</label> -->
-                                <select class="form-control" id="answer3">
-                                    <option>None Selected</option>
-                                    <option>Yes! It has to be quiet. I'm very self conscious in the bathroom.</option>
-                                    <option>Quiet wrappers would be nice.</option>
-                                    <option>no....it doesn't matter...</option>
-                                    <option>no wrapper would be better</option>
-                                </select>
+                                <input class="form-control">
+                                <p class="help-block">City</p>
                             </div>
+                            <!-- state -->
+                            <div class="form-group">
+                                <input class="form-control">
+                                <p class="help-block">State</p>
+                            </div>
+                            <!-- postal / zip code -->
+                            <div class="form-group">
+                                <input class="form-control">
+                                <p class="help-block">Postal / Zip Code</p>
+                            </div>
+                            <!-- country -->
+                            <div class="form-group">
+                                <input class="form-control">
+                                <p class="help-block">Country</p>
+                            </div>
+
+
                             <button type="submit" class="btn btn-default" id="submitButton">Submit Button</button>
                         </form>
-
-                        <!-- product result -->
-                        <!-- this answer will be returned by backend server after answers from questions are sent. -->
-                        <div id="productResult">
-                            <!-- [product name] it will go here. -->
-                        </div>
 
                     </div>
                     <!-- /.col-lg-12 -->
@@ -479,55 +468,15 @@
     <script src="../js/passive_data_collector.js"></script>
 
     <script type="text/javascript">
-    // PRODUCT RECOMMENDER
+    // PRODUCT PURCHASER
+    // creates an order for a free box with a given unique address
+
+    // get address data
+    // code...
+
+    // send address data to server
+    // code...
     
-    // Capture all questions and answers
-    var questionnaire = {
-        questions: [ 
-            $('#question1').attr('placeholder'),
-            $('#question2').attr('placeholder'),
-            $('#question3').attr('placeholder')
-        ],
-        answers: [
-            $('#answer1').val(),
-            $('#answer2').val(),
-            $('#answer3').val()
-        ]
-    };
-
-    // Send all question and answers to server
-    $('#submitButton').click(function(){
-        $.ajax({
-            url: 'ajax-test.html',
-            type: 'POST',
-            data: {
-                questionnaire
-            },
-           success:function(result)//we got the response
-           {
-                alert('Successfully called');
-           },
-           error:function(exception){
-                // alert('Exeption:'+exception);
-
-               // DEV: just show a default answer
-               update_product_result();
-
-            }
-
-        })
-
-        return false; // return false to not refreash data
-    });
-
-    function update_product_result() {
-
-        $('#productResult').html('Tampax - Pearl - Super');
-    }
-
-
-    // console.log(questionnaire);
-    // console.log();
 
     </script>
 
