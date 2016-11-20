@@ -27,10 +27,10 @@ module LadyProblems
         # 'Access-Control-Allow-Origin' => 'http://lady-problems-zoe.s3-website-us-east-1.amazonaws.com',
         # 'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(",")
         # 'Access-Control-Allow-Headers' => "Content-Type";
-        'Access-Control-Allow-Origin': '*'
-        'Access-Control-Allow-Methods': 'POST, PUT, DELETE, GET, OPTIONS'
-        'Access-Control-Request-Method': '*'
-        'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+        'Access-Control-Allow-Origin' => '*'
+        'Access-Control-Allow-Methods' => 'POST, PUT, DELETE, GET, OPTIONS'
+        'Access-Control-Request-Method' => '*'
+        'Access-Control-Allow-Headers' => 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
       }
   end
 end
