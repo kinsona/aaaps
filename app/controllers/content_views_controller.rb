@@ -2,10 +2,10 @@ class ContentViewsController < ApplicationController
 
   def create
     @content_view = ContentView.new(content_view_params)
-    if @content_view.save
-      format.json { render :nothing, status: 201 }
+    if @content_view.user && @content_view.save
+      render nothing: true, status: 201
     else
-      render :nothing, status: 400
+      render nothing: true, status: 400
     end
   end
 
@@ -15,7 +15,7 @@ class ContentViewsController < ApplicationController
   private
 
     def content_view_params
-      params.require(:content_view).permit(:user_id, :content_url)
+      params.permit(:device_id, :content_url)
     end
 
 end
