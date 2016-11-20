@@ -29,7 +29,7 @@ POST to aaaps.herokuapp.com/product_recommendations.json
 The body of the request should look like this:
 ```
 {
-  device_id: '1234567',
+  device_id: "1234567",
   product_recommendation_responses_attributes: [
     { question_text: "Can I ask you a question?", response_text: "Yes, you can!" },
     { question_text: "What about a follow-up question?", response_text: "That's too much." }
