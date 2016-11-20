@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161120024427) do
+ActiveRecord::Schema.define(version: 20161120030806) do
 
   create_table "content_views", force: :cascade do |t|
     t.string   "content_url"
@@ -30,6 +30,20 @@ ActiveRecord::Schema.define(version: 20161120024427) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "device_id"
+  end
+
+  create_table "product_recommendation_responses", force: :cascade do |t|
+    t.integer  "product_recommendation_id", null: false
+    t.string   "question_text",             null: false
+    t.string   "response_text",             null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "product_recommendations", force: :cascade do |t|
+    t.string   "device_id",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
