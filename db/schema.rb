@@ -11,13 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161120010633) do
+ActiveRecord::Schema.define(version: 20161120030806) do
 
   create_table "content_views", force: :cascade do |t|
-    t.integer  "user_id",     null: false
     t.string   "content_url"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "device_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "recipient_name",     null: false
+    t.string   "address_line_1",     null: false
+    t.string   "address_line_2",     null: false
+    t.string   "city",               null: false
+    t.string   "state_abbreviation", null: false
+    t.string   "zip_code",           null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "device_id"
+  end
+
+  create_table "product_recommendation_responses", force: :cascade do |t|
+    t.integer  "product_recommendation_id", null: false
+    t.string   "question_text",             null: false
+    t.string   "response_text",             null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "product_recommendations", force: :cascade do |t|
+    t.string   "device_id",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
