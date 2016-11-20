@@ -1,9 +1,13 @@
 class UsersController < ApplicationController
 
   def create
-    @user = User.new(new_user_params)
-    if @user.save
-      render json: @user
+    @existing_user = User.where(device_id: params[:device_id]).first
+    @new_user = User.new(new_user_params)
+
+    if @existing_user
+      render json: @existing_user, status: 200
+    elsif @new_user.save
+      render json: @new_user, status: 201
     else
       render nothing: true, status: 400
     end    
